@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kirby RPG</title>
+    <link rel="icon" type="img/png" href="assets/images/favicon.png">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Kirby RPG</h1>
+        <section class="char-select fighters">
+            <h2>Choose your character!</h2>
+            <div class="characters">
+                <div class="character kirby" id="Kirby">
+                    <img src="assets/images/kirbyeditted.jpg" alt="Kirby" class="kirby charpic">
+                    <div class="kirby name">Kirby</div>
+                    <div class="kirby hp" data-character="Kirby"></div>
+                </div>
+                <div class="character metaknight" id="MetaKnight">
+                    <img src="assets/images/metaknight.jpg" alt="Meta Knight" class="metaknight charpic">
+                    <div class="metaknight name">Meta Knight</div>
+                    <div class="metaknight hp" data-character="MetaKnight"></div>
+                </div>
+                <div class="character dedede" id="Dedede">
+                    <img src="assets/images/dedede.jpg" alt="King Dedede" class="dedede charpic">
+                    <div class="dedede name">King Dedede</div>
+                    <div class="dedede hp" data-character="Dedede"></div>
+                </div>
+                <div class="character bandana" id="BandanaDee">
+                    <img src="assets/images/bandana.png" alt="Bandana Waddle Dee" class="bandana charpic">
+                    <div class="bandana name">Bandana Waddle Dee</div>
+                    <div class="bandana hp" data-character="BandanaDee"></div>
+                </div>
+            </div>
+        </section>
+        <section class="char-select opponents">
+            <h2>Choose your opponent!</h2>
+        </section>
+        <section class="arena">
+            <h2>Arena</h2>
+            <button class="attack">Attack!</button>
+            <div class="challenger"></div>
+            <div class="message"></div>
+        </section>
+        <div class="reset">
+            <button class="reset-btn">Reset</button>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <script rel="rext/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>

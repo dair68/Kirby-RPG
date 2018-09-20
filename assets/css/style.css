@@ -1,0 +1,11 @@
+.character, .name, .hp {
+    display: inline;
+}
+
+h1 {
+    /* color: pink; */
+}
+
+.message {
+    white-space: pre-line;
+}
