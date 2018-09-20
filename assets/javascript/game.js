@@ -1,11 +1,9 @@
 var characterChosen = false;
 var opponentChosen = false;
-var battleMode = false;
-var playerCharacter = null;
-var opponent = null;
+var playerCharacter;
+var opponent;
 var numOpponents = 0;
-var dead = false;
-var announcement;
+
 $(".attack").hide();
 
 //character stats
@@ -43,12 +41,12 @@ var stats = {
 //updates hp values for all the characters on the screen
 function updateHP() {
     $(".hp").each(function () {
-        console.log(this);
+        //console.log(this);
         var character = $(this).attr("data-character");
         var health = stats[character].health;
         var total = stats[character].totalHealth;
-        console.log(stats.character);
-        $(this).text(health + "/" + total); 
+        //console.log(stats.character);
+        $(this).text(health + "/" + total + " HP");
     });
 }
 
@@ -57,8 +55,6 @@ $(".character").on("click", function () {
     //choosing player character at start of game
     if (!characterChosen) {
         playerCharacter = $(this).attr("id");
-        // var pictureCopy = $(this).clone();
-        // $(".chosen-char").append(pictureCopy);
         console.log("player: " + playerCharacter);
 
         //moving the fighters to opponents section
@@ -68,7 +64,7 @@ $(".character").on("click", function () {
                 // console.log("appending");
                 $(".opponents").append(this);
             }
-        })
+        });
         characterChosen = true;
         numOpponents = 3;
     }
@@ -85,72 +81,66 @@ $(".character").on("click", function () {
 });
 
 //clicking the attack button
-$(".attack").on("click",function() {
-    if (battleMode) {
-        //moving player character over
-        // $()
-        //attacking opponent
-        stats[opponent].health -= stats[playerCharacter].totalAttack;
-        updateHP();
+$(".attack").on("click", function () {
 
-        var message1 = opponent + " loss " + stats[playerCharacter].totalAttack + " hp!"
+    //attacking opponent
+    stats[opponent].health -= stats[playerCharacter].totalAttack;
+    updateHP();
 
-        $(".message").text(message1);
+    var message1 = opponent + " loss " + stats[playerCharacter].totalAttack + " hp!"
 
-        // attack stat raises by 6 every hit
-        stats[playerCharacter].totalAttack += 6;
-        
-        //defeated opponent
-        if (stats[opponent].health <= 0) {
-            var line1 = opponent + " was defeated!"
-            $(".attack").hide();
-            $(".message").text(line1);
-            $("#"+ opponent).hide();
-            numOpponents--;
+    $(".message").text(message1);
 
-            var line2 = "Congratulations. You Won! \n Press reset to play again.";
-            if (numOpponents === 0) {
-                $(".message").text(line1 + "\n" + line2);
-            }
+    // attack stat raises by 6 every hit
+    stats[playerCharacter].totalAttack += 6;
 
+    //defeated opponent
+    if (stats[opponent].health <= 0) {
+        var line1 = opponent + " was defeated!"
+        $(".attack").hide();
+        $(".message").text(line1);
+        $("#" + opponent).hide();
+        numOpponents--;
 
-
-            battleMode = false;
-            opponentChosen = false;
-            return;
+        var line2 = "Congratulations. You Won! \n Press reset to play again.";
+        if (numOpponents === 0) {
+            $(".message").text(line1 + "\n" + line2);
         }
 
-        //opponent counter-attacks
-        // lowerHp(playerCharacter, counterAtk(opponent));
-        $(".message")
+        // battleMode = false;
+        opponentChosen = false;
+        return;
+    }
 
-        stats[playerCharacter].health -= stats[opponent].counter;
-        updateHP();
+    //opponent counter-attacks
+    $(".message")
 
-        var message2 = playerCharacter + " loss " + stats[opponent].totalAttack + "hp!"
+    stats[playerCharacter].health -= stats[opponent].counter;
+    updateHP();
 
-        $(".message").text(message1 + " \n " + message2);
+    var message2 = playerCharacter + " loss " + stats[opponent].totalAttack + "hp!"
 
-        //player character dies
-        if (stats[playerCharacter].health <= 0) {
-            $("#" + playerCharacter).hide();
-            $(".attack").hide();
-            $(".message").text(playerCharacter + " was defeated! \n Game Over. Click reset to try again");
-            battleMode = false;
-            opponentChosen = false;
-            return;
-        }
+    $(".message").text(message1 + " \n " + message2);
+
+    //player character dies
+    if (stats[playerCharacter].health <= 0) {
+        $("#" + playerCharacter).hide();
+        $(".attack").hide();
+        $(".message").text(playerCharacter + " was defeated! \n Game Over. Click reset to try again");
+        // battleMode = false;
+        //opponentChosen = false;
+        return;
     }
 });
 
 //resets the game
-$(".reset-btn").on("click",function() {
-    $(".character").each(function() {
+$(".reset-btn").on("click", function () {
+    $(".character").each(function () {
         var character = $(this).attr("id");
 
         $(".characters").append(this);
-        
-        
+
+
         //restoring health
         stats[character].health = stats[character].totalHealth;
         //reseting attack
@@ -170,14 +160,11 @@ $(".reset-btn").on("click",function() {
     characterChosen = false;
     opponentChosen = false;
     battleMode = false;
-    playerCharacter = null;
-    opponent = null;
+    playerCharacter;
+    opponent;
     numOpponents = 3;
-    dead = false;
     updateHP();
 });
 
 //running game for first time
-
 updateHP();
-// console.log(hp("Marx"));

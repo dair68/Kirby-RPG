@@ -1,9 +1,55 @@
-.character, .name, .hp {
-    display: inline;
+body, html {
+    color: black;
+    height: 100%;
+    /* font-family: 'Cute Font', cursive; */
+    /* font-family: 'Stylish', sans-serif; */
+    font-family: 'Noto Serif JP', sans-serif;
+    /* font-size: 1.5em; */
 }
 
 h1 {
-    /* color: pink; */
+    font-size: 5em;
+    font-family: 'Cute Font', cursive;
+    /* font-family: 'Spirax', cursive; */
+    color: whitesmoke;
+    background: hotpink;
+    text-align: center;
+    border: 5px ridge lightyellow;
+    font-weight: bold;
+    /* font-style: italic; */
+}
+
+.badge-pill {
+    color: hotpink;
+    padding: .1em .5em .1em .5em;
+    margin-bottom: 10px;
+}
+
+.bg {
+    background-image: url("../images/background.png");
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.character {
+    display: inline-block;
+}
+
+.charpic {
+    width: auto;
+    height: auto;
+    max-height: 100px;
+    border: 5px ridge gold;
+}
+
+.character {
+    background-color: white;
+    /* height: 200px; */
+    /* width: 50%; */
 }
 
 .message {
