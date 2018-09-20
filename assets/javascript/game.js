@@ -5,6 +5,7 @@ var opponent;
 var numOpponents = 0;
 
 $(".attack").hide();
+$(".opponents").hide();
 
 //character stats
 var stats = {
@@ -54,15 +55,21 @@ function updateHP() {
 $(".character").on("click", function () {
     //choosing player character at start of game
     if (!characterChosen) {
+        //click noise
+        document.getElementById("click").play();
+
         playerCharacter = $(this).attr("id");
         console.log("player: " + playerCharacter);
 
+        $(".choose-charac").text("You: ");
+
         //moving the fighters to opponents section
+        $(".opponents").show();
         $(".character").each(function () {
             // console.log($(this).attr("id"));
             if ($(this).attr("id") !== playerCharacter) {
                 // console.log("appending");
-                $(".opponents").append(this);
+                $(".rivals").append(this);
             }
         });
         characterChosen = true;
@@ -71,10 +78,14 @@ $(".character").on("click", function () {
 
     //choosing character to fight
     if ($(this).attr("id") !== playerCharacter && !opponentChosen) {
+        //click noise
+        document.getElementById("click").play();
+
+        //moving opponent to the arena
         opponent = $(this).attr("id");
         console.log("opponent: " + opponent);
         $(".attack").show();
-        $(".arena").append(this);
+        $(".challenger").append(this);
         opponentChosen = true;
         battleMode = true;
     }
@@ -84,6 +95,7 @@ $(".character").on("click", function () {
 $(".attack").on("click", function () {
 
     //attacking opponent
+    document.getElementById("attack-sound").play();
     stats[opponent].health -= stats[playerCharacter].totalAttack;
     updateHP();
 
@@ -113,7 +125,8 @@ $(".attack").on("click", function () {
     }
 
     //opponent counter-attacks
-    $(".message")
+    // $(".message")
+    // document.getElementById("counter-sound").play();
 
     stats[playerCharacter].health -= stats[opponent].counter;
     updateHP();
@@ -140,7 +153,6 @@ $(".reset-btn").on("click", function () {
 
         $(".characters").append(this);
 
-
         //restoring health
         stats[character].health = stats[character].totalHealth;
         //reseting attack
@@ -154,9 +166,13 @@ $(".reset-btn").on("click", function () {
     $(".characters").append($("#Dedede"));
     $(".characters").append($("#BandanaDee"));
 
+    //reseting containers
+    $(".choose-charac").text("Choose your character!");
     $(".message").empty();
     $(".attack").hide();
+    $(".opponents").hide();
 
+    //reseting variables
     characterChosen = false;
     opponentChosen = false;
     battleMode = false;
@@ -168,3 +184,7 @@ $(".reset-btn").on("click", function () {
 
 //running game for first time
 updateHP();
+//setting music
+document.getElementById("background-music").loop = true;
+document.getElementById("background-music").volume = 0.5;
+document.getElementById("background-music").play();

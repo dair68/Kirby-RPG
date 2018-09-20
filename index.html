@@ -19,61 +19,92 @@
 
 <body>
     <div class="bg">
-        <header>
-            <h1>Kirby <span class="badge badge-pill badge-light">RPG</span></h1>
-        </header>
-        <br>
-        <div class="container">
-            <section class="row">
-                <div class="char-select fighters col-md-6">
-                    <h2>Choose your character!</h2>
-                    <!-- <br> -->
-                    <div class="characters">
-                        <div class="character kirby" id="Kirby">
-                            <img src="assets/images/kirbyeditted.jpg" alt="Kirby" class="kirby charpic">
-                            <div class="kirby name">Kirby</div>
-                            <div class="kirby hp" data-character="Kirby"></div>
-                        </div>
-                        <div class="character metaknight" id="MetaKnight">
-                            <img src="assets/images/metaknight.jpg" alt="Meta Knight" class="metaknight charpic">
-                            <div class="metaknight name">Meta Knight</div>
-                            <div class="metaknight hp" data-character="MetaKnight"></div>
-                        </div>
-                        <div class="character dedede" id="Dedede">
-                            <img src="assets/images/dedede.jpg" alt="King Dedede" class="dedede charpic">
-                            <div class="dedede name">King Dedede</div>
-                            <div class="dedede hp" data-character="Dedede"></div>
-                        </div>
-                        <div class="character bandana" id="BandanaDee">
-                            <img src="assets/images/bandana.png" alt="Bandana Waddle Dee" class="bandana charpic">
-                            <div class="bandana name">Bandana W. Dee</div>
-                            <div class="bandana hp" data-character="BandanaDee"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-1"></div>
-                <section class="arena col-md-4">
-                    <h2>Arena</h2>
-                    <button class="attack">Attack!</button>
-                    <div class="challenger"></div>
-                    <div class="message"></div>
-                </section>
-            </section>
+        <div class="content">
+            <header>
+                <h1>Kirby <span class="badge badge-pill badge-light">RPG</span></h1>
+            </header>
             <br>
-            <section class="char-select opponents row">
-                <div class="col-md-6">
-                    <h2>Choose your opponent!</h2>
-                </div>
-            </section>
+            <div class="container">
+                <section class="row">
+                    <div class="col-md-6">
+                        <div class="char-select fighters row">
+                            <div class="col-md-12">
+                                <h2 class="choose-charac">Choose your character!</h2>
+                            </div>
+                            <!-- <br> -->
+                            <div class="characters col-md-12">
+                                <div class="character kirby card" id="Kirby">
+                                    <img src="assets/images/kirbyportrait.jpg" alt="Kirby" class="kirby charpic card-img-top">
+                                    <div class="card-body">
+                                        <div class="kirby name card-text">Kirby</div>
+                                        <div class="kirby hp card-text" data-character="Kirby"></div>
+                                    </div>
+                                </div>
+                                <div class="character metaknight card" id="MetaKnight">
+                                    <img src="assets/images/hmmm.png" alt="Meta Knight" class="metaknight charpic card-img-top">
+                                    <div class="card-body">
+                                        <div class="metaknight name card-text">Meta Knight</div>
+                                        <div class="metaknight hp card-text" data-character="MetaKnight"></div>
+                                    </div>
+                                </div>
+                                <div class="character dedede card" id="Dedede">
+                                    <img src="assets/images/dededeedit.png" alt="King Dedede" class="dedede charpic card-img-top">
+                                    <div class="card-body">
+                                        <div class="dedede name card-text">King Dedede</div>
+                                        <div class="dedede hp card-text" data-character="Dedede"></div>
+                                    </div>
+                                </div>
+                                <div class="character bandana card" id="BandanaDee">
+                                    <img src="assets/images/squee.png" alt="Bandana Waddle Dee" class="bandana charpic card-img-top">
+                                    <div class="card-body">
+                                        <div class="bandana name card-text">Bandana Dee</div>
+                                        <div class="bandana hp card-text" data-character="BandanaDee"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <hr> -->
+                        <section class="char-select opponents row">
+                            <div class="col-md-12">
+                                <h2>Select your opponent!</h2>
+                            </div>
+                            <div class="col-md-12 rivals"></div>
+                        </section>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <section class="arena col-md-4">
+                        <h2>Arena</h2>
+                        <div class="stadium" background="assets/images/arena.gif">
+                            <button class="attack">Attack!</button>
+                            <div class="challenger"></div>
+                            <div class="message"></div>
+                        </div>
 
-            <div class="reset">
-                <button class="reset-btn">Reset</button>
+                    </section>
+
+                    <br>
+
+                    <div class="reset">
+                        <button class="reset-btn">Reset</button>
+                    </div>
+                </section>
             </div>
         </div>
-        <footer>
-            This website is purely for entertainment. All Kirby related images and sounds are properties of Nintendo.
-        </footer>
+
     </div>
+    <footer>
+        <div class="disclaimer">
+            <p>This website is not affiliated with Nintendo or the official Kirby games and is purely for
+                entertainment.</p>
+            <p> All Kirby related images and sounds are properties of Nintendo.</p>
+            <p>&copy;2018</p>
+        </div>
+    </footer>
+    <audio src="assets/audio/Green Greens.mp3" id="background-music"></audio>
+    <audio src="assets/audio/shortclick.mp3" id="click"></audio>
+    <audio src="assets/audio/supershortJab.mp3" id="attack-sound"></audio>
+    <audio src="assets/audio/Right Hook.mp3" id="counter-sound"></audio>
+    <audio src="assets/audio/Upper Cut.mp3" id="ko-sound"></audio>
     <script rel="rext/javascript" src="assets/javascript/game.js"></script>
 </body>
 
