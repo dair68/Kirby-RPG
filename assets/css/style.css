@@ -5,6 +5,7 @@ body, html {
     /* font-family: 'Stylish', sans-serif; */
     font-family: 'Noto Serif JP', sans-serif;
     /* font-size: 1.5em; */
+    /* line-height: 1.5em; */
 }
 
 h1 {
@@ -23,6 +24,7 @@ h1 {
     color: hotpink;
     padding: .1em .5em .1em .5em;
     margin-bottom: 10px;
+    /* font-weight: bolder; */
 }
 
 .bg {
@@ -33,6 +35,18 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    background: white;
+    color: black;
+    padding: 10px;
+}
+
+.fighters {
+    background: white;
 }
 
 .character {
