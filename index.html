@@ -35,28 +35,28 @@
                             <div class="characters col-md-12">
                                 <div class="character kirby card" id="Kirby">
                                     <img src="assets/images/kirbyportrait.jpg" alt="Kirby" class="kirby charpic card-img-top">
-                                    <div class="card-body">
+                                    <div class="card-body stats">
                                         <div class="kirby name card-text">Kirby</div>
                                         <div class="kirby hp card-text" data-character="Kirby"></div>
                                     </div>
                                 </div>
                                 <div class="character metaknight card" id="MetaKnight">
                                     <img src="assets/images/hmmm.png" alt="Meta Knight" class="metaknight charpic card-img-top">
-                                    <div class="card-body">
+                                    <div class="card-body stats">
                                         <div class="metaknight name card-text">Meta Knight</div>
                                         <div class="metaknight hp card-text" data-character="MetaKnight"></div>
                                     </div>
                                 </div>
-                                <div class="character dedede card" id="Dedede">
+                                <div class="character dedede card" id="KingDedede">
                                     <img src="assets/images/dededeedit.png" alt="King Dedede" class="dedede charpic card-img-top">
-                                    <div class="card-body">
+                                    <div class="card-body stats">
                                         <div class="dedede name card-text">King Dedede</div>
-                                        <div class="dedede hp card-text" data-character="Dedede"></div>
+                                        <div class="dedede hp card-text" data-character="KingDedede"></div>
                                     </div>
                                 </div>
                                 <div class="character bandana card" id="BandanaDee">
                                     <img src="assets/images/squee.png" alt="Bandana Waddle Dee" class="bandana charpic card-img-top">
-                                    <div class="card-body">
+                                    <div class="card-body stats">
                                         <div class="bandana name card-text">Bandana Dee</div>
                                         <div class="bandana hp card-text" data-character="BandanaDee"></div>
                                     </div>
@@ -72,31 +72,42 @@
                         </section>
                     </div>
                     <div class="col-md-1"></div>
-                    <section class="arena col-md-4">
-                        <h2>Arena</h2>
-                        <div class="stadium" background="assets/images/arena.gif">
-                            <button class="attack">Attack!</button>
-                            <div class="challenger"></div>
-                            <div class="message"></div>
-                        </div>
-
-                    </section>
-
-                    <br>
-
-                    <div class="reset">
-                        <button class="reset-btn">Reset</button>
+                    <div class="col-md-4">
+                        <section class="card arena">
+                            <div class="card-header">
+                                <h2>Arena</h2>
+                            </div>
+                            <img class="stadium card-img-top" src="assets/images/arena.gif" alt="fight-setting">
+                            <div class="card-body fight-panel">
+                                <!-- <div class="challenger"></div> -->
+                                <button type="button" class="attack btn">Attack!</button>
+                                <div class="messages card-text">
+                                    <p class="line1 message"></p>
+                                    <p class="line2 message"></p>
+                                    <p class="line3 message"></p>
+                                </div>
+                                <button type="button" class="reset btn btn-primary">RESET</button>
+                            </div>
+                        </section>
                     </div>
                 </section>
             </div>
+
+            <br>
+
+            <!-- <div class="reset"> -->
+                
+            <!-- </div> -->
+            </section>
         </div>
+    </div>
 
     </div>
     <footer>
         <div class="disclaimer">
             <p>This website is not affiliated with Nintendo or the official Kirby games and is purely for
                 entertainment.</p>
-            <p> All Kirby related images and sounds are properties of Nintendo.</p>
+            <p> All Kirby related images and sounds are the intellectual property of Nintendo.</p>
             <p>&copy;2018</p>
         </div>
     </footer>

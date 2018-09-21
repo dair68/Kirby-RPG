@@ -73,6 +73,10 @@ h2 {
     /* opacity: .5; */
 }
 
+.opponents {
+    display: none;
+}
+
 .character {
     display: inline-block;
     border: none;
@@ -86,7 +90,7 @@ h2 {
     border: 5px ridge gold;
 }
 
-.card-body {
+.stats {
     padding: 5px;
     text-align: center;
     background: black;
@@ -118,6 +122,41 @@ h2 {
 
 .arena {
     max-height: 350px;
+}
+
+.fight-panel {
+    background: white;
+    color: black;
+    padding: 10px;
+}
+
+.attack {
+    /* text-align: center; */
+    display: none;
+    margin: auto;
+    background: red;
+    color: white;
+    font-family: 'Cute Font', cursive;
+    font-size: 2em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.card-header {
+    background: white;
+}
+
+.messages {
+    line-height: 1.5em;
+}
+
+.reset {
+    margin: auto;
+    display: none;
+    font-family: 'Cute Font', cursive;
+    font-size: 2em;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 

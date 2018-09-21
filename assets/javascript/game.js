@@ -1,11 +1,14 @@
+// $(".attack").hide();
+// $(".opponents").hide();
+// $(".reset").hide();
+
 var characterChosen = false;
 var opponentChosen = false;
 var playerCharacter;
 var opponent;
 var numOpponents = 0;
 
-$(".attack").hide();
-$(".opponents").hide();
+
 
 //character stats
 var stats = {
@@ -23,7 +26,7 @@ var stats = {
         totalAttack: 12,
         counter: 25
     },
-    Dedede: {
+    KingDedede: {
         health: 45,
         totalHealth: 45,
         attack: 20,
@@ -85,7 +88,7 @@ $(".character").on("click", function () {
         opponent = $(this).attr("id");
         console.log("opponent: " + opponent);
         $(".attack").show();
-        $(".challenger").append(this);
+        // $(".challenger").append(this);
         opponentChosen = true;
         battleMode = true;
     }
@@ -99,25 +102,41 @@ $(".attack").on("click", function () {
     stats[opponent].health -= stats[playerCharacter].totalAttack;
     updateHP();
 
-    var message1 = opponent + " loss " + stats[playerCharacter].totalAttack + " hp!"
+    var atkMessage = playerCharacter + " attacks! ";
+    var dmgMessage = opponent + " loses " + stats[playerCharacter].totalAttack + " hp.";
+    var message1 = atkMessage + dmgMessage;  
 
-    $(".message").text(message1);
+    $(".line1").text(message1);
 
     // attack stat raises by 6 every hit
     stats[playerCharacter].totalAttack += 6;
 
     //defeated opponent
     if (stats[opponent].health <= 0) {
-        var line1 = opponent + " was defeated!"
-        $(".attack").hide();
-        $(".message").text(line1);
-        $("#" + opponent).hide();
+        console.log("defeat");
         numOpponents--;
+        
+        var defeat = opponent + " was defeated!"
+        var winMessage = defeat;
 
-        var line2 = "Congratulations. You Won! \n Press reset to play again.";
-        if (numOpponents === 0) {
-            $(".message").text(line1 + "\n" + line2);
+        //fighters left
+        if (numOpponents > 0) {
+            var newFightMessage = " Select another opponent."
+            winMessage = defeat + newFightMessage;
         }
+        //player defeated everyone
+        if (numOpponents === 0) {
+            var congrats = "Congratulations. You Won! Click Reset to play again.";
+            $(".line3").text(congrats);
+            $(".reset").show();
+            // winMessage = defeat + congrats;
+            // $(".message").text(line1 + "\n" + line2);
+        }
+
+        $(".attack").hide();
+        $(".line2").text(winMessage);
+        $("#" + opponent).hide();
+        
 
         // battleMode = false;
         opponentChosen = false;
@@ -131,15 +150,18 @@ $(".attack").on("click", function () {
     stats[playerCharacter].health -= stats[opponent].counter;
     updateHP();
 
-    var message2 = playerCharacter + " loss " + stats[opponent].totalAttack + "hp!"
+    atkMessage = opponent + " counterattacks! ";
+    dmgMessage = playerCharacter + " loses " + stats[opponent].totalAttack + " hp.";
+    var message2 = atkMessage + dmgMessage;
 
-    $(".message").text(message1 + " \n " + message2);
+    $(".line2").text(message2);
 
     //player character dies
     if (stats[playerCharacter].health <= 0) {
         $("#" + playerCharacter).hide();
         $(".attack").hide();
-        $(".message").text(playerCharacter + " was defeated! \n Game Over. Click reset to try again");
+        $(".line3").text(playerCharacter + " was defeated! Game Over. Click Reset to try again.");
+        $(".reset").show();
         // battleMode = false;
         //opponentChosen = false;
         return;
@@ -147,7 +169,7 @@ $(".attack").on("click", function () {
 });
 
 //resets the game
-$(".reset-btn").on("click", function () {
+$(".reset").on("click", function () {
     $(".character").each(function () {
         var character = $(this).attr("id");
 
@@ -163,14 +185,18 @@ $(".reset-btn").on("click", function () {
     //sorting characters in order
     $(".characters").append($("#Kirby"));
     $(".characters").append($("#MetaKnight"));
-    $(".characters").append($("#Dedede"));
+    $(".characters").append($("#KingDedede"));
     $(".characters").append($("#BandanaDee"));
 
     //reseting containers
     $(".choose-charac").text("Choose your character!");
-    $(".message").empty();
     $(".attack").hide();
     $(".opponents").hide();
+    $(".reset").hide();
+
+    $(".message").each(function() {
+        $(this).empty();
+    });
 
     //reseting variables
     characterChosen = false;
