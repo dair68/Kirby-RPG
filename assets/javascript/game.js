@@ -4,8 +4,8 @@
 
 var characterChosen = false;
 var opponentChosen = false;
-var playerCharacter;
-var opponent;
+var playerCharacter = null;
+var opponent = null;
 var numOpponents = 0;
 var challenger;
 
@@ -50,7 +50,15 @@ function updateHP() {
         var total = stats[character].totalHealth;
         //console.log(stats.character);
         $(this).text(health + "/" + total + " HP");
+
+        // if($(this).attr("data-character" === playerCharacter)) {
+        // //updating health bar
+        //   $("#player-health").text(playerCharacter + ": " + health + "/" + total + " HP");
+        // }
     });
+
+     //updating health bars
+    //  $(".#player-health").text(playerCharacter + ": " +)
 }
 
 //selecting character
@@ -74,6 +82,8 @@ $(".character").on("click", function () {
                 $(".rivals").append(this);
             }
         });
+
+        
         characterChosen = true;
         numOpponents = 3;
     }
@@ -104,6 +114,17 @@ $(".character").on("click", function () {
             $(challenger).show();
         }
         // $(".challenger").append(this);
+        //updating health bar
+    
+            //updating health bar
+            // var health = stats[playerCharacter].health;
+            //  var total = stats[playerCharacter].totalHealth;
+            //   $("#player-health").text(playerCharacter + ": " + health + "/" + total + " HP");
+            //   $("#player-health").attr("aria-valuemax",total);
+            //   $("#player-health").attr("aria-valuenow", health);
+            //   $("#player-health").attr("style","width: "+total/health*100+"%");
+            
+        
         opponentChosen = true;
         battleMode = true;
     }
@@ -165,6 +186,13 @@ $(".attack").on("click", function () {
 
     stats[playerCharacter].health -= stats[opponent].counter;
     updateHP();
+
+            //  var health = stats[playerCharacter].health;
+            //  var total = stats[playerCharacter].totalHealth;
+            // //   $("#player-health").text(playerCharacter + ": " + health + "/" + total + " HP");
+            //   $("#player-health").attr("aria-valuemax",total);
+            //   $("#player-health").attr("aria-valuenow", health);
+            //   $("#player-health").attr("style","width: "+total/health*100+"%");
 
     atkMessage = opponent + " counterattacks! ";
     dmgMessage = playerCharacter + " loses " + stats[opponent].totalAttack + " hp.";
