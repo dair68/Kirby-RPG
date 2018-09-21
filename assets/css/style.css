@@ -159,6 +159,40 @@ h2 {
     padding-bottom: 0px;
 }
 
+.arena-floor {
+    position: fixed; /* Sit on top of the page content */
+    /* display: none; */
+}
+
+.pixel {
+    display: none;
+    position: absolute;
+    width: auto;
+    height: auto;
+    /* min-height: 75px; */
+    /* max-height: 75px; */
+    left: 120px;
+    top: 180px;
+}
+
+#pixel-kirby {
+    max-height: 75px;
+}
+
+#pixel-knight {
+    max-height: 120px;
+}
+
+#pixel-king {
+    max-height: 120px;
+}
+
+#pixel-dee {
+    max-height: 100px;
+}
+
+
+
 
 
   

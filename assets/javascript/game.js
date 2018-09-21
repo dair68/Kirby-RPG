@@ -7,8 +7,7 @@ var opponentChosen = false;
 var playerCharacter;
 var opponent;
 var numOpponents = 0;
-
-
+var challenger;
 
 //character stats
 var stats = {
@@ -88,6 +87,22 @@ $(".character").on("click", function () {
         opponent = $(this).attr("id");
         console.log("opponent: " + opponent);
         $(".attack").show();
+        if (opponent === "Kirby") {
+            challenger = document.getElementById("pixel-kirby");
+            $(challenger).show();
+        }
+        if (opponent === "MetaKnight") {
+            challenger = document.getElementById("pixel-knight");
+            $(challenger).show();
+        }
+        if (opponent === "KingDedede") {
+            challenger = document.getElementById("pixel-king");
+            $(challenger).show();
+        }
+        if (opponent === "BandanaDee") {
+            challenger = document.getElementById("pixel-dee");
+            $(challenger).show();
+        }
         // $(".challenger").append(this);
         opponentChosen = true;
         battleMode = true;
@@ -133,6 +148,7 @@ $(".attack").on("click", function () {
             // $(".message").text(line1 + "\n" + line2);
         }
 
+        $(challenger).hide();
         $(".attack").hide();
         $(".line2").text(winMessage);
         $("#" + opponent).hide();
@@ -193,6 +209,7 @@ $(".reset").on("click", function () {
     $(".attack").hide();
     $(".opponents").hide();
     $(".reset").hide();
+    $(challenger).hide();
 
     $(".message").each(function() {
         $(this).empty();
@@ -202,9 +219,10 @@ $(".reset").on("click", function () {
     characterChosen = false;
     opponentChosen = false;
     battleMode = false;
-    playerCharacter;
-    opponent;
+    playerCharacter = null;
+    opponent = null;
     numOpponents = 3;
+    challenger = null;
     updateHP();
 });
 
